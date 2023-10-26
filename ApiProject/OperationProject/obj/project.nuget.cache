@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "wrXjRxFaOnpQkQWFgyDzoSiVwNdU/1OeBV2nRKS55IzHTiNbmE3iTOIYLKZLVvQ1q/sl/NMRhCkgk74k0IK19g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\burcu.tokol\\Desktop\\GençYetenekler\\FinalTask_\\VakifBankBootcampFinalTask\\ApiProject\\OperationProject\\OperationProject.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://10.236.3.63/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}

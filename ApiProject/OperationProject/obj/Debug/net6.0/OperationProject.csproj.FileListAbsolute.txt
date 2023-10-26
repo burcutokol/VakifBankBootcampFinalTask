@@ -1,0 +1,11 @@
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\bin\Debug\net6.0\OperationProject.deps.json
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\bin\Debug\net6.0\OperationProject.dll
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\bin\Debug\net6.0\OperationProject.pdb
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\obj\Debug\net6.0\OperationProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\obj\Debug\net6.0\OperationProject.AssemblyInfoInputs.cache
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\obj\Debug\net6.0\OperationProject.AssemblyInfo.cs
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\obj\Debug\net6.0\OperationProject.csproj.CoreCompileInputs.cache
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\obj\Debug\net6.0\OperationProject.dll
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\obj\Debug\net6.0\refint\OperationProject.dll
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\obj\Debug\net6.0\OperationProject.pdb
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\ApiProject\OperationProject\obj\Debug\net6.0\ref\OperationProject.dll
