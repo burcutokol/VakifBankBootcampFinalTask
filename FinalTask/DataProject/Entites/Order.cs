@@ -30,9 +30,10 @@ namespace DataProject.Entites
             builder.Property(x => x.IsActive).IsRequired().HasDefaultValue(true);
 
 
-            builder.Property(x => x.Id).IsRequired();
+            builder.Property(x => x.OrderId).IsRequired();
+            builder.HasIndex(x => x.OrderId).IsUnique();
             builder.Property(x => x.OrderDate).IsRequired();
-            builder.Property(x => x.TotalAmount).IsRequired();
+            builder.Property(x => x.TotalAmount).IsRequired().HasPrecision(10, 2);
             builder.Property(x => x.Status).IsRequired().HasMaxLength(50);
 
             builder.HasMany(x => x.Items)
