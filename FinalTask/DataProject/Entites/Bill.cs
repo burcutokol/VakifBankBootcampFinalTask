@@ -12,6 +12,8 @@ namespace DataProject.Entites
         public int PaymentId { get; set; }
         public virtual Payment Payment { get; set; }
         public double TotalAmount { get; set; }
+        public int DealerId { get; set; }
+        public virtual Dealer Dealer { get; set; }
 
     }
     public class BillConfiguration : IEntityTypeConfiguration<Bill>

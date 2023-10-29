@@ -4,6 +4,7 @@ using DataProject.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataProject.Migrations
 {
     [DbContext(typeof(DbContextClass))]
-    partial class DbContextClassModelSnapshot : ModelSnapshot
+    [Migration("20231029091743_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,15 +114,9 @@ namespace DataProject.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("DealerId")
-                        .IsUnique();
-
-                    b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Dealer", "dbo");
@@ -392,9 +389,6 @@ namespace DataProject.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -420,17 +414,6 @@ namespace DataProject.Migrations
                     b.Navigation("Dealer");
 
                     b.Navigation("Payment");
-                });
-
-            modelBuilder.Entity("DataProject.Entites.Dealer", b =>
-                {
-                    b.HasOne("DataProject.Entites.User", "User")
-                        .WithOne("Dealer")
-                        .HasForeignKey("DataProject.Entites.Dealer", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DataProject.Entites.Order", b =>
@@ -495,12 +478,6 @@ namespace DataProject.Migrations
                     b.Navigation("Items");
 
                     b.Navigation("Payment")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("DataProject.Entites.User", b =>
-                {
-                    b.Navigation("Dealer")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

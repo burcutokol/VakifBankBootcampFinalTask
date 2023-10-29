@@ -13,11 +13,13 @@ namespace DataProject.Entites
         public DateTime OrderDate { get; set; }
         public string Status { get; set; }
         public int PaymentId { get; set; }
-        public Payment Payment { get; set; }
-        public double TotalAmount { get; set; }
-        public int DealerId { get; set; }
+        public virtual Payment Payment { get; set; }
+        public int DealerId {  get; set; }
         public virtual Dealer Dealer { get; set; }
-        public virtual List<OrderItem> Items { get; set; }  
+
+        public virtual List<OrderItem> Items { get; set; }
+        public double TotalAmount { get; set; }
+        
 
     }
     public class OrderConfiguration : IEntityTypeConfiguration<Order>
@@ -36,15 +38,18 @@ namespace DataProject.Entites
             builder.Property(x => x.TotalAmount).IsRequired().HasPrecision(10, 2);
             builder.Property(x => x.Status).IsRequired().HasMaxLength(50);
 
+            builder.Property(x => x.PaymentId).IsRequired();
+
             builder.HasMany(x => x.Items)
                 .WithOne(x => x.Order)
                 .HasForeignKey(x => x.OrderId)
                 .IsRequired(true);
 
-            builder.HasIndex(x => x.PaymentId);
-            builder.HasIndex(x => x.DealerId);
+            builder.HasOne(x => x.Payment)
+            .WithOne(x => x.Order)
+            .HasForeignKey<Payment>().IsRequired(true);
 
-             
+
         }
     }
 }

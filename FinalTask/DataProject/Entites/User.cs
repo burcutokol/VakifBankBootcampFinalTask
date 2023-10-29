@@ -9,6 +9,7 @@ namespace DataProject.Entites
     [Table("User", Schema = "dbo")]
     public class User : BaseModel
     {
+        public int UserLoginId { get; set; }
         public string UserName { get; set; }    
         public string Password { get; set; }
         public string Email { get; set; }
@@ -17,6 +18,7 @@ namespace DataProject.Entites
         public DateTime LastActivityDate { get; set; }
         public int PasswordRetryCount { get; set; }
         public int Status { get; set; } 
+        public Dealer Dealer { get; set; }
         
     }
     public class UserConfiguration : IEntityTypeConfiguration<User>

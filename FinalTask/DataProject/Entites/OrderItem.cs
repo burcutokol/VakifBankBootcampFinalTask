@@ -13,7 +13,6 @@ namespace DataProject.Entites
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }    
         public int Count { get; set; }
-        public double TotalAmount { get; set; }
     }
     public class OrderItemConfigure : IEntityTypeConfiguration<OrderItem>
     {
@@ -27,7 +26,6 @@ namespace DataProject.Entites
             builder.Property(x => x.ProductId).IsRequired();
 
             builder.Property(x => x.Count).IsRequired().HasDefaultValue(1);
-            builder.Property(x => x.TotalAmount).IsRequired().HasDefaultValue(0.0);
 
 
 

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Emit;
 
 namespace DataProject.Entites
 {
@@ -9,13 +10,15 @@ namespace DataProject.Entites
     public class Dealer : BaseModel
     {
         public int DealerId { get; set; }
+        public int UserLoginId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public string BillInfo { get; set; }    
         public double ProfitMargin { get; set; }
-        public double Limit {  get; set; }
+        public double Limit { get; set; }
+        public virtual User User { get; set; }
         public virtual List<Order> Orders { get; set; }
         public virtual List<Report> Reports { get; set; }
+        public virtual List<Bill> Bills { get; set; }
     }
     public class DealerConfiguration : IEntityTypeConfiguration<Dealer>
     {
@@ -29,7 +32,6 @@ namespace DataProject.Entites
             builder.HasIndex(x => x.DealerId).IsUnique(true);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Address).IsRequired().HasMaxLength(200);
-            builder.Property(x => x.BillInfo).IsRequired().HasMaxLength(200);
             builder.Property(x => x.ProfitMargin).IsRequired().HasPrecision(10, 2).HasDefaultValue(0.0);
             builder.Property(x => x.Limit).IsRequired().HasPrecision(10, 2).HasDefaultValue(0.0);
 
@@ -40,9 +42,19 @@ namespace DataProject.Entites
                 .IsRequired(false);
             builder.HasMany(x => x.Orders)
                 .WithOne(x => x.Dealer)
-                .HasForeignKey (x => x.DealerId)    
+                .HasForeignKey(x => x.DealerId)
                 .IsRequired(false);
+            builder.HasMany(x => x.Bills)
+                .WithOne(x => x.Dealer)
+                .HasForeignKey(x => x.DealerId)
+            .IsRequired(false);
 
+            builder.HasOne(x => x.User)
+                .WithOne(x => x.Dealer)
+                .HasForeignKey<Dealer>()
+                .IsRequired();
         }
+
     }
 }
+
