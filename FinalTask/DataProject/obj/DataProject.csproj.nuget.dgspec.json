@@ -195,7 +195,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\burcu.tokol\\Desktop\\GençYetenekler\\FinalTask_\\VakifBankBootcampFinalTask\\FinalTask\\SchemaProject\\SchemaProject.csproj": {
+                "projectPath": "C:\\Users\\burcu.tokol\\Desktop\\GençYetenekler\\FinalTask_\\VakifBankBootcampFinalTask\\FinalTask\\SchemaProject\\SchemaProject.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -208,6 +212,26 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[9.5.2, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[9.5.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.13, )"

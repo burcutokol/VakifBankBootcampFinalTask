@@ -1,9 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "c8jXL/U7EfKNzOOf8zBbs5Uyz8ubpWJGCzyAqzSv0kgY3zllKFLpbqxS7+7Sgb76Ezkc83uWVMnxoZaNpg0ZDw==",
+  "dgSpecHash": "A3K18eNhVm/MmnPKKlRGz/0PbGtceh5AZsK3XeI0qqaCsPWYF2ZV/cZV9ySaJj8gdohs5g73UBNVuBBMC4uyMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\burcu.tokol\\Desktop\\GençYetenekler\\FinalTask_\\VakifBankBootcampFinalTask\\FinalTask\\OperationProject\\OperationProject.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\burcu.tokol\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\burcu.tokol\\.nuget\\packages\\fluentvalidation\\9.5.2\\fluentvalidation.9.5.2.nupkg.sha512",
+    "C:\\Users\\burcu.tokol\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.5.2\\fluentvalidation.aspnetcore.9.5.2.nupkg.sha512",
+    "C:\\Users\\burcu.tokol\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.5.2\\fluentvalidation.dependencyinjectionextensions.9.5.2.nupkg.sha512",
+    "C:\\Users\\burcu.tokol\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\burcu.tokol\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
+    "C:\\Users\\burcu.tokol\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.13\\microsoft.entityframeworkcore.abstractions.7.0.13.nupkg.sha512",
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.13\\microsoft.entityframeworkcore.analyzers.7.0.13.nupkg.sha512",

@@ -21,3 +21,6 @@ C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTa
 C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\OperationProject\obj\Debug\net6.0\refint\OperationProject.dll
 C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\OperationProject\obj\Debug\net6.0\OperationProject.pdb
 C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\OperationProject\obj\Debug\net6.0\ref\OperationProject.dll
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\OperationProject\bin\Debug\net6.0\SchemaProject.dll
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\OperationProject\bin\Debug\net6.0\SchemaProject.pdb
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\OperationProject\obj\Debug\net6.0\OperationProject.csproj.CopyComplete

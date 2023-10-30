@@ -70,10 +70,7 @@ namespace DataProject.Migrations
             modelBuilder.Entity("DataProject.Entites.Dealer", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -111,15 +108,12 @@ namespace DataProject.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("UserLoginId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DealerId")
-                        .IsUnique();
-
-                    b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Dealer", "dbo");
@@ -392,7 +386,7 @@ namespace DataProject.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("UserLoginId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -426,7 +420,7 @@ namespace DataProject.Migrations
                 {
                     b.HasOne("DataProject.Entites.User", "User")
                         .WithOne("Dealer")
-                        .HasForeignKey("DataProject.Entites.Dealer", "UserId")
+                        .HasForeignKey("DataProject.Entites.Dealer", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using DataProject.Context;
 using Microsoft.EntityFrameworkCore;
+using DataProject.Uow;
 
 namespace ApiProject
 {
@@ -19,6 +20,7 @@ namespace ApiProject
         {
             string connection = Configuration.GetConnectionString("MsSqlConnection");
             services.AddDbContext<DbContextClass>(opt => opt.UseSqlServer(connection));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddMemoryCache();
 
             services.AddControllers();

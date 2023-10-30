@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Emit;
-
 namespace DataProject.Entites
 {
     [Table("Dealer", Schema = "dbo")]

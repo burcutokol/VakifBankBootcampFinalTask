@@ -4,16 +4,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiProject.Controllers
 {
-    public class DealersController : ControllerBase
+    public class DealerController : ControllerBase
     {
         private readonly DbContextClass dbContextClass;
-        public DealersController(DbContextClass dbContextClass) 
+        public DealerController(DbContextClass dbContextClass) 
         {
             this.dbContextClass = dbContextClass;
         }
 
         [HttpGet]
-        public List<Order> GetOrders()
+        public List<Order> GetDealers()
         {
             List<Order> orders = new List<Order>();
             return orders;
