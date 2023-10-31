@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using DataProject.Context;
 using Microsoft.EntityFrameworkCore;
 using DataProject.Uow;
+using AutoMapper;
+using OperationProject.Mapper;
+using MediatR;
+using OperationProject.Cqrs;
+using System.Reflection;
 
 namespace ApiProject
 {
@@ -21,6 +26,11 @@ namespace ApiProject
             string connection = Configuration.GetConnectionString("MsSqlConnection");
             services.AddDbContext<DbContextClass>(opt => opt.UseSqlServer(connection));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddMediatR(typeof(GetAllProductsQuery).GetTypeInfo().Assembly);
+
+
+            var config = new MapperConfiguration(cfg => { cfg.AddProfile(new MapperConfig()); });
+            services.AddSingleton(config.CreateMapper());
             services.AddMemoryCache();
 
             services.AddControllers();

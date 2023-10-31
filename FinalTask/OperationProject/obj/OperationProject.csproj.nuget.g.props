@@ -16,4 +16,7 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\7.0.13\buildTransitive\net6.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\7.0.13\buildTransitive\net6.0\Microsoft.EntityFrameworkCore.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgFSharp_Compiler_Tools Condition=" '$(PkgFSharp_Compiler_Tools)' == '' ">C:\Users\burcu.tokol\.nuget\packages\fsharp.compiler.tools\10.2.3</PkgFSharp_Compiler_Tools>
+  </PropertyGroup>
 </Project>

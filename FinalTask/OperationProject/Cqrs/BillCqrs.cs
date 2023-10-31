@@ -1,12 +1,15 @@
-﻿using MediatR;
+﻿using BaseProject.Response;
+using MediatR;
 using SchemaProject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OperationProject.Cqrs
 {
-  public record CreateBillCommand() : IRequest<BillRequest>;
+      public record CreateBillCommand(BillRequest model) : IRequest<ApiResponse<BillResponse>>;
+      public record UpdateBillCommand(BillRequest model, int id) : IRequest<ApiResponse>;
+      public record DeleteBillCommand(BillRequest model, int id) : IRequest<ApiResponse>;
+
+      
+      public record GetAllBillsQuery()  : IRequest<ApiResponse<List<BillResponse>>>;
+      public record GetBillByIdQuery(int id) : IRequest<ApiResponse<BillResponse>>;
+
 }

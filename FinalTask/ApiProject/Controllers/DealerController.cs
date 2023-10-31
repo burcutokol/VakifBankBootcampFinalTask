@@ -1,22 +1,21 @@
-﻿using DataProject.Context;
+﻿using BaseProject.Response;
+using DataProject.Context;
 using DataProject.Entites;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiProject.Controllers
 {
+    [Route("Vk/Api/[controller]")]
+    [ApiController]
     public class DealerController : ControllerBase
     {
-        private readonly DbContextClass dbContextClass;
-        public DealerController(DbContextClass dbContextClass) 
+        private IMediator mediator;
+        public DealerController(IMediator mediator) 
         {
-            this.dbContextClass = dbContextClass;
+            this.mediator = mediator;
         }
 
-        [HttpGet]
-        public List<Order> GetDealers()
-        {
-            List<Order> orders = new List<Order>();
-            return orders;
-        }
+      
     }
 }

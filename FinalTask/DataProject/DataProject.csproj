@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BaseProject\BaseProject.csproj" />
-    <ProjectReference Include="..\OperationProject\OperationProject.csproj" />
     <ProjectReference Include="..\SchemaProject\SchemaProject.csproj" />
   </ItemGroup>
 

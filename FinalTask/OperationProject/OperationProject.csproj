@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -19,10 +19,10 @@
 	<ItemGroup>
 	  <Folder Include="Command\" />
 	  <Folder Include="Validation\" />
-	  <Folder Include="Query\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\SchemaProject\SchemaProject.csproj" />
+		<ProjectReference Include="..\DataProject\DataProject.csproj" />
 	</ItemGroup>
 
 </Project>

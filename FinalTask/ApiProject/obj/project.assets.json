@@ -1307,7 +1307,6 @@
           "Microsoft.EntityFrameworkCore": "7.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11",
-          "OperationProject": "1.0.0",
           "SchemaProject": "1.0.0"
         },
         "compile": {
@@ -1322,6 +1321,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "12.0.1",
+          "DataProject": "1.0.0",
           "FluentValidation.AspNetCore": "9.5.2",
           "FluentValidation.DependencyInjectionExtensions": "9.5.2",
           "MediatR": "9.0.0",
