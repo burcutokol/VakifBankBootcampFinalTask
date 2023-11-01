@@ -17,10 +17,6 @@
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.5.2" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Command\" />
-	  <Folder Include="Validation\" />
-	</ItemGroup>
-	<ItemGroup>
 	  <ProjectReference Include="..\SchemaProject\SchemaProject.csproj" />
 		<ProjectReference Include="..\DataProject\DataProject.csproj" />
 	</ItemGroup>

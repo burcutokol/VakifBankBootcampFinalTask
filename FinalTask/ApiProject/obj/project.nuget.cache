@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qf122iDKhMQXv5KtMN/4BD/ZeShGxmk0cyFxYvPud3GoojvmhBeQOeIvd+XYBqw1L3+ualCdOQrvfFQafZCpZQ==",
+  "dgSpecHash": "hRd/KzzmmtUzQxvwV9fzik49NtTAFcbvEaBv63HyE4N6ZVr4BrMvO0IbuXY92gyILYBF8yhuDre+Lt2MdA7W7g==",
   "success": true,
   "projectFilePath": "C:\\Users\\burcu.tokol\\Desktop\\GençYetenekler\\FinalTask_\\VakifBankBootcampFinalTask\\FinalTask\\ApiProject\\ApiProject.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
+    "C:\\Users\\burcu.tokol\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.24\\microsoft.aspnetcore.authentication.jwtbearer.6.0.24.nupkg.sha512",
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\burcu.tokol\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",

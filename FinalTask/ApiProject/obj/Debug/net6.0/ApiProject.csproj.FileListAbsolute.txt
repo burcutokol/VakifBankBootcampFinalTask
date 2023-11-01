@@ -191,3 +191,4 @@ C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTa
 C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\ApiProject\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\ApiProject\bin\Debug\net6.0\MediatR.dll
 C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\ApiProject\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\burcu.tokol\Desktop\GençYetenekler\FinalTask_\VakifBankBootcampFinalTask\FinalTask\ApiProject\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

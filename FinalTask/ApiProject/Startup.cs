@@ -8,6 +8,10 @@ using OperationProject.Mapper;
 using MediatR;
 using OperationProject.Cqrs;
 using System.Reflection;
+using BaseProject.Token;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace ApiProject
 {
@@ -24,6 +28,10 @@ namespace ApiProject
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("MsSqlConnection");
+            var JwtConfig = Configuration.GetSection("JwtConfig").Get<JwtConfig>();
+            services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
+
+
             services.AddDbContext<DbContextClass>(opt => opt.UseSqlServer(connection));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddMediatR(typeof(GetAllProductsQuery).GetTypeInfo().Assembly);
@@ -37,6 +45,27 @@ namespace ApiProject
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FinalTaskApi", Version = "v1" });
+            });
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = true;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = JwtConfig.Issuer,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JwtConfig.Secret)),
+                    ValidAudience = JwtConfig.Audience,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.FromMinutes(2)
+                };
             });
         }
 
