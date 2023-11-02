@@ -5,14 +5,12 @@
 namespace DataProject.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedData : Migration
+    public partial class UpdateMigrationV12 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            //TODO order product scripts
-            //migrationBuilder.Sql
-            //    ("");
+
         }
 
         /// <inheritdoc />

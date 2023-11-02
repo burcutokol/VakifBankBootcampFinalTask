@@ -29,11 +29,12 @@ namespace DataProject.Entites
             builder.Property(x => x.UpdateDate).IsRequired(false);
             builder.Property(x => x.IsActive).IsRequired().HasDefaultValue(true);
 
+            builder.Property(x => x.UserLoginId).IsRequired();
             builder.Property(x => x.UserName).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Email).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Password).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Role).IsRequired().HasMaxLength(10);
-            builder.Property(x => x.LastActivityDate).IsRequired();
+            builder.Property(x => x.LastActivityDate).IsRequired(); //TODO : defaultvalue
             builder.Property(x => x.PasswordRetryCount).IsRequired().HasDefaultValue(0);
             builder.Property(x => x.Status).IsRequired().HasDefaultValue(1); //locked => 0 
                                                                                 //unlocked => 1

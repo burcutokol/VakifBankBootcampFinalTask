@@ -35,7 +35,8 @@ namespace OperationProject.Command
             new Claim("Id", user.UserLoginId.ToString()),
             new Claim("Role", user.Role),
             new Claim("Email", user.Email),
-            new Claim("UserName", user.UserName)
+            new Claim("UserName", user.UserName),
+            new Claim(ClaimTypes.Role, user.Role),
         };
 
             return claims;

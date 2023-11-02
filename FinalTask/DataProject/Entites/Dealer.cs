@@ -26,6 +26,7 @@ namespace DataProject.Entites
             builder.Property(x => x.UpdateDate).IsRequired(false);
             builder.Property(x => x.IsActive).IsRequired().HasDefaultValue(true);
 
+            builder.Property(x => x.UserLoginId).IsRequired();
             builder.Property(x => x.DealerId).IsRequired();
             builder.HasIndex(x => x.DealerId).IsUnique(true);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(100);

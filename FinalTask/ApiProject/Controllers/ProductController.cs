@@ -1,5 +1,6 @@
 ﻿using BaseProject.Response;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OperationProject.Cqrs;
 using SchemaProject;
@@ -16,12 +17,14 @@ namespace ApiProject.Controllers
             this.mediator = mediator;
         }
         [HttpGet]
+        [Authorize(Roles = "Dealer, Admin")]
         public async Task<ApiResponse<List<ProductResponse>>> GetProducts()
         {
             var handler = new GetAllProductsQuery();
             var result = await mediator.Send(handler);
             return result;
         }
+        
 
     }
 }
