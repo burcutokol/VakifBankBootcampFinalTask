@@ -8,7 +8,6 @@ namespace SchemaProject
 {
     public class OrderItemRequest
     {
-        public int OrderId { get; set; }
         public int ProductId { get; set; }
         public int Count { get; set; }
     }
@@ -17,5 +16,6 @@ namespace SchemaProject
         public int OrderId { get; set; }
         public int ProductId { get; set; }
         public int Count { get; set; }
+        public ProductResponse Product { get; set; }
     }
 }

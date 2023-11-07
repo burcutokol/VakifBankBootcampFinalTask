@@ -36,9 +36,12 @@ namespace ApiProject
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddMediatR(typeof(GetAllProductsQuery).GetTypeInfo().Assembly);
 
+            var mapperConfig = new MapperConfig();
+            services.AddSingleton(mapperConfig);
 
             var config = new MapperConfiguration(cfg => { cfg.AddProfile(new MapperConfig()); });
             services.AddSingleton(config.CreateMapper());
+ 
             services.AddMemoryCache();
 
             services.AddControllers();

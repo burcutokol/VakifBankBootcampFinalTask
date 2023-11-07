@@ -25,16 +25,48 @@ namespace ApiProject.Controllers
             var result = await mediator.Send(operation);
             return result;
         }
-
+        //TODO getorderbyid
         [HttpGet("GetDealersOrders")]
-        [Authorize(Roles = "Admin, Dealer")]
-        public async Task<ApiResponse<OrderResponse>> GetOrderById()
+        [Authorize(Roles = "Dealer")]
+        public async Task<ApiResponse<OrderResponse>> GetDealersOrders()
         {
             var id = (User.Identity as ClaimsIdentity).FindFirst("Id").Value;
             var operation = new GetOrderByIdQuery(int.Parse(id));
             var result = await mediator.Send(operation);
             return result;
         }
+        [HttpPost("CreateOrder")]
+        [Authorize(Roles = "Dealer")]
+        public async Task<ApiResponse<OrderResponse>> CreateOrder([FromBody] OrderRequest model)
+        {
+            var id = (User.Identity as ClaimsIdentity).FindFirst("Id").Value;
+            var operation = new CreateOrderCommand(model, int.Parse(id));
+            var result = await mediator.Send(operation);
+            return result;
+        }
+        [HttpPost("CancelOrder")]
+        [Authorize(Roles = "Dealer")]
+        public async Task<ApiResponse> CancelOrder(int orderId)
+        {
+            var id = (User.Identity as ClaimsIdentity).FindFirst("Id").Value;
+            var operation = new UpdateOrderCommand(orderId, int.Parse(id));
+            var result = await mediator.Send(operation);
+            return result;
+        }
+        [HttpPost("OrderApproveReject")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ApiResponse> ApproveRejectOrder(int orderId, bool status)
+        {
+            IRequest<ApiResponse> operation;
+            if (status)
+                operation = new ApproveOrder(orderId);
+            else
+                operation = new RejectOrder(orderId);
+
+            var result = await mediator.Send(operation);
+            return result;
+        }
+      
 
     }
 }

@@ -8,11 +8,8 @@ namespace SchemaProject
 {
     public class PaymentRequest
     {
-        public int PaymentId { get; set; }
-        public int OrderId { get; set; }
         public string PaymentType { get; set; }
-        public double PaidAmount { get; set; }
-        public string PaymentStatus { get; set; }
+        public int OrderId { get; set; }
 
     }
     public class PaymentResponse 
