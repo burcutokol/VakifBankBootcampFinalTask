@@ -12,6 +12,8 @@ using BaseProject.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using BaseProject;
+using Braintree;
 
 namespace ApiProject
 {
@@ -30,6 +32,7 @@ namespace ApiProject
             string connection = Configuration.GetConnectionString("MsSqlConnection");
             var JwtConfig = Configuration.GetSection("JwtConfig").Get<JwtConfig>();
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
+
 
 
             services.AddDbContext<DbContextClass>(opt => opt.UseSqlServer(connection));

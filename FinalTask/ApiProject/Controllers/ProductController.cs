@@ -1,5 +1,4 @@
 ﻿using BaseProject.Response;
-using DataProject.Entites;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

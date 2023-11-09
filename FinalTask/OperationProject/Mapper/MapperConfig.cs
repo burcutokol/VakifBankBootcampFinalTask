@@ -18,6 +18,8 @@ namespace OperationProject.Mapper
                 cfg.CreateMap<BillRequest, Bill>(); //BillRequest to Bill
                 cfg.CreateMap<Bill, BillResponse>(); //Bill to BillResponse
 
+                cfg.CreateMap<Payment, PaymentResponse>()
+                .ForMember(dest => dest.OrderId, opt => opt.MapFrom(src => src.OrderId));
 
                 cfg.CreateMap<ProductRequest, Product>(); //ProductRequest to Product
                 cfg.CreateMap<Product, ProductResponse>(); //Product to ProductResponse
@@ -57,7 +59,6 @@ namespace OperationProject.Mapper
                     .ForMember(dest => dest.UpdateDate, opt => opt.Ignore()) // UpdateDate'ı Ignore et
                     .ForMember(dest => dest.IsActive, opt => opt.Ignore());
                 cfg.CreateMap<OrderRequest, Order>()
-                    .ForMember(dest => dest.Payment, opt => opt.MapFrom(src => src.Payment))
                     .ForMember(dest => dest.PaymentId, opt => opt.Ignore())
                     .ForMember(dest => dest.DealerId, opt => opt.Ignore())
                     .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.Items))
@@ -69,6 +70,11 @@ namespace OperationProject.Mapper
                     .BeforeMap((src, dest) => dest.InsertDate = DateTime.Now)
                     .BeforeMap((src, dest) => dest.OrderDate = DateTime.Now)
                     .ForMember(dest => dest.OrderDate, opt => opt.Ignore()); // OrderDate'i Ignore et
+
+                    cfg.CreateMap<Message, MessageResponse>()
+                    .ForMember(dest => dest.SenderUserName, opt => opt.Ignore());
+
+                     cfg.CreateMap<MessageRequest, Message>();
 
             });
 

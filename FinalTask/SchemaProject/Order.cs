@@ -8,8 +8,6 @@ namespace SchemaProject
 {
     public class OrderRequest
     {
-        public virtual PaymentRequest Payment { get; set; }
-
         public virtual List<OrderItemRequest> Items { get; set; }
     }
     public class OrderResponse 

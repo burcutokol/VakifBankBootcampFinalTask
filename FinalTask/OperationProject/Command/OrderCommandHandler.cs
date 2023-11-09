@@ -81,28 +81,20 @@ namespace OperationProject.Command
                 }
 
             }
-            Payment newPayment = mapper.Map<PaymentRequest, Payment>(request.model.Payment);
            
-
             Order newOrder = new Order();
             newOrder = mapper.Map<Order>(request.model);
             newOrder.Dealer = await dbContextClass.Set<Dealer>().FindAsync(request.DealerId);
             newOrder.DealerId = request.DealerId;
             newOrder.OrderId = newOrder.Id;
             newOrder.Status = "Pending approval";
-            newPayment.PaymentStatus = "Pending approval";
-            newPayment.PaymentId = newPayment.Id;
-            newOrder.PaymentId = newPayment.PaymentId;
+
             newOrder.TotalAmount = CalculateTotalAmount(request.model.Items); //TODO Kar marjı ekle
-            newPayment.PaidAmount = newOrder.TotalAmount;
-            newOrder.Payment = newPayment;
 
-
-            dbContextClass.Set<Payment>().AddAsync(newPayment);
             dbContextClass.Set<Order>().AddAsync(newOrder);
             dbContextClass.SaveChangesAsync(cancellationToken);
-
-            return new ApiResponse<OrderResponse>(new OrderResponse());
+            OrderResponse mappedOrder = mapper.Map<OrderResponse>(newOrder);
+            return new ApiResponse<OrderResponse>(mappedOrder);
         }
 
         public async Task<ApiResponse> Handle(ApproveOrder request, CancellationToken cancellationToken)
