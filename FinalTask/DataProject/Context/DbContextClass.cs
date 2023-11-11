@@ -24,6 +24,7 @@ namespace DataProject.Context
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new ReportConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new MessageConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

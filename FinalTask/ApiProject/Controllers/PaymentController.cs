@@ -1,6 +1,7 @@
 ﻿using BaseProject;
 using BaseProject.Response;
 using Braintree;
+using DataProject.Entites;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +29,7 @@ namespace ApiProject.Controllers
             var result = await mediator.Send(handler);
             return result;
         }
-        [HttpGet("{id}")]
+        [HttpGet("GetPaymentById")]
         [Authorize(Roles = "Admin")]
         public async Task<ApiResponse<PaymentResponse>> GetPaymentById(int paymentId)
         {
@@ -49,10 +50,18 @@ namespace ApiProject.Controllers
             var result = await mediator.Send(operation);
             return result;
         }
-        [HttpPost]
+        [HttpPost("GetCreditCardPayment")]
         public async Task<ApiResponse<PaymentResponse>> CreateCreditCardPayment([FromBody] SchemaProject.CreditCard model, int orderId)
         {
             IRequest<ApiResponse<PaymentResponse>> operation = new CreateCreditCardPaymentCommand(model, orderId);
+            var result = await mediator.Send(operation);
+            return result;
+        }
+        [HttpPost("DeleteMessage")]
+        [Authorize(Roles = "Admin, Dealer")]
+        public async Task<ApiResponse> DeletePayment(int PaymentId)
+        {
+            var operation = new DeletePaymentCommand(PaymentId);
             var result = await mediator.Send(operation);
             return result;
         }

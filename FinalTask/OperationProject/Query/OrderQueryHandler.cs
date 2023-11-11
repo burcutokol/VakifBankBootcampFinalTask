@@ -29,6 +29,7 @@ namespace OperationProject.Query
            .Include(x => x.Payment)
            .Include(x=> x.Items)
            .ThenInclude(item => item.Product)
+           .Where(x => x.IsActive)
            .ToListAsync(cancellationToken);
 
             List<OrderResponse> mapped = mapper.Map<List<OrderResponse>>(list);
@@ -43,7 +44,7 @@ namespace OperationProject.Query
            .Include(x => x.Payment)
            .Include(x => x.Items)
            .ThenInclude(item => item.Product)
-                .FirstOrDefaultAsync(x => x.Id == request.id, cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.id && x.IsActive, cancellationToken);
 
             if (entity == null)
             {

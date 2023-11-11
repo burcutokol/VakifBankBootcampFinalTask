@@ -45,7 +45,7 @@ namespace OperationProject.Command
         }
         public async Task<ApiResponse> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
-            var entity = await dbContextClass.Set<Order>().FirstOrDefaultAsync(x => x.Id == request.id, cancellationToken);
+            var entity = await dbContextClass.Set<Order>().FirstOrDefaultAsync(x => x.Id == request.id && x.IsActive, cancellationToken);
             if (entity == null)
             {
                 return new ApiResponse("Record not found!");
@@ -59,7 +59,7 @@ namespace OperationProject.Command
 
         public async Task<ApiResponse> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
         {
-            var entity = await dbContextClass.Set<Order>().FirstOrDefaultAsync(x => x.Id == request.OrderId, cancellationToken);
+            var entity = await dbContextClass.Set<Order>().FirstOrDefaultAsync(x => x.Id == request.OrderId && x.IsActive, cancellationToken);
             if (entity == null)
             {
                 return new ApiResponse("Record not found!");
@@ -82,7 +82,7 @@ namespace OperationProject.Command
 
             }
            
-            Order newOrder = new Order();
+            Order? newOrder = new Order();
             newOrder = mapper.Map<Order>(request.model);
             newOrder.Dealer = await dbContextClass.Set<Dealer>().FindAsync(request.DealerId);
             newOrder.DealerId = request.DealerId;
@@ -99,7 +99,7 @@ namespace OperationProject.Command
 
         public async Task<ApiResponse> Handle(ApproveOrder request, CancellationToken cancellationToken)
         {
-            var order = await dbContextClass.Set<Order>().FirstOrDefaultAsync(o => o.Id == request.id);
+            var order = await dbContextClass.Set<Order>().FirstOrDefaultAsync(o => o.Id == request.id && o.IsActive);
             if(order == null) 
             {
                 return new ApiResponse("Order not found.");
@@ -112,7 +112,7 @@ namespace OperationProject.Command
 
         public async Task<ApiResponse> Handle(RejectOrder request, CancellationToken cancellationToken)
         {
-            var order = await dbContextClass.Set<Order>().FirstOrDefaultAsync(o => o.Id == request.id);
+            var order = await dbContextClass.Set<Order>().FirstOrDefaultAsync(o => o.Id == request.id && o.IsActive);
             if (order == null)
             {
                 return new ApiResponse("Order not found.");

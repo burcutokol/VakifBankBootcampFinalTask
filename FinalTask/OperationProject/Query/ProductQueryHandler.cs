@@ -33,7 +33,7 @@ namespace OperationProject.Query
         }
         public async Task<ApiResponse<ProductResponse>> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
-            Product? entity = await dbContextClass.Set<Product>().FirstOrDefaultAsync(x => x.Id == request.ProductId, cancellationToken);
+            Product? entity = await dbContextClass.Set<Product>().FirstOrDefaultAsync(x => x.Id == request.ProductId && x.IsActive, cancellationToken);
             if (entity == null)
             {
                 return new ApiResponse<ProductResponse>("Record not found!");
@@ -43,7 +43,7 @@ namespace OperationProject.Query
                 var mappedProduct = mapper.Map<ProductResponse>(entity);
                 return new ApiResponse<ProductResponse>(mappedProduct);
             }
-            Dealer dealer = await dbContextClass.Set<Dealer>().FirstOrDefaultAsync(x => x.UserLoginId == request.UserId, cancellationToken);
+            Dealer? dealer = await dbContextClass.Set<Dealer>().FirstOrDefaultAsync(x => x.UserLoginId == request.UserId && x.IsActive, cancellationToken);
             ProductResponse productResponse = mapper.Map<ProductResponse>(entity);
             productResponse.Price = CalculateProductPrice(dealer.ProfitMargin, entity.Price);
             return new ApiResponse<ProductResponse>(productResponse);
@@ -51,7 +51,7 @@ namespace OperationProject.Query
 
         public async Task<ApiResponse<List<ProductResponse>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
         {
-            List<Product> list = dbContextClass.Set<Product>().ToList();
+            List<Product> list = dbContextClass.Set<Product>().Where(x => x.IsActive).ToList();
             var mappedList = mapper.Map<List<ProductResponse>>(list);
             return new ApiResponse<List<ProductResponse>>(mappedList);
         }

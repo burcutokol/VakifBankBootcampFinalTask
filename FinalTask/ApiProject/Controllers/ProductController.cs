@@ -25,7 +25,7 @@ namespace ApiProject.Controllers
             var result = await mediator.Send(handler);
             return result;
         }
-        [HttpGet("{id}")]
+        [HttpGet("GetProductById{id}")]
         [Authorize(Roles = "Admin, Dealer")]
         public async Task<ApiResponse<ProductResponse>> GetProductById(int id)
         {

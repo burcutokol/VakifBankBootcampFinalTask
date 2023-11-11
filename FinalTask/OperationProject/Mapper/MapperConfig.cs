@@ -15,18 +15,16 @@ namespace OperationProject.Mapper
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<BillRequest, Bill>(); //BillRequest to Bill
-                cfg.CreateMap<Bill, BillResponse>(); //Bill to BillResponse
 
                 cfg.CreateMap<Payment, PaymentResponse>()
                 .ForMember(dest => dest.OrderId, opt => opt.MapFrom(src => src.OrderId));
 
-                cfg.CreateMap<ProductRequest, Product>(); //ProductRequest to Product
+                cfg.CreateMap<ProductRequest, Product>()
+                .BeforeMap((src, dest) => dest.InsertDate = DateTime.Now);//ProductRequest to Product
                 cfg.CreateMap<Product, ProductResponse>(); //Product to ProductResponse
 
-                cfg.CreateMap<Product, ProductResponse>();
                 cfg.CreateMap<OrderItem, OrderItemResponse>();
-                cfg.CreateMap<Payment, PaymentResponse>();// OrderItem to OrderItemResponse
+                cfg.CreateMap<Payment, PaymentResponse>();
                 cfg.CreateMap<Order, OrderResponse>()
                     .ForMember(dest => dest.DealerId, opt => opt.MapFrom(src => src.Dealer.DealerId))
                     .ForMember(dest => dest.PaymentId, opt => opt.MapFrom(src => src.Payment.PaymentId))
@@ -48,14 +46,16 @@ namespace OperationProject.Mapper
                     .ForMember(dest => dest.IsActive, opt => opt.Ignore())// Ignore 'IsActive'
                     .ForMember(dest => dest.OrderId, opt => opt.Ignore()) // OrderId'yi Ignore et
                     .ForMember(dest => dest.Order, opt => opt.Ignore()) // Order'ı Ignore et
-                    .ForMember(dest => dest.Product, opt => opt.Ignore()); // Product'ı Ignore et
+                    .ForMember(dest => dest.Product, opt => opt.Ignore())
+                    .BeforeMap((src, dest) => dest.InsertDate = DateTime.Now) // InsertDate'ı Ignore et
+                    .ForMember(dest => dest.UpdateDate, opt => opt.Ignore()); // Product'ı Ignore et
                 cfg.CreateMap<PaymentRequest, Payment>()
                     .ForMember(dest => dest.PaymentId, opt => opt.Ignore()) // Ignore 'PaymentId'
                     .ForMember(dest => dest.OrderId, opt => opt.Ignore()) // Ignore 'OrderId'
                     .ForMember(dest => dest.PaidAmount, opt => opt.Ignore()) // Ignore 'PaidAmount'
                     .ForMember(dest => dest.PaymentStatus, opt => opt.Ignore())
                     .ForMember(dest => dest.Order, opt => opt.Ignore()) // Order'ı Ignore et
-                    .ForMember(dest => dest.InsertDate, opt => opt.Ignore()) // InsertDate'ı Ignore et
+                    .BeforeMap((src, dest) => dest.InsertDate = DateTime.Now) // InsertDate'ı Ignore et
                     .ForMember(dest => dest.UpdateDate, opt => opt.Ignore()) // UpdateDate'ı Ignore et
                     .ForMember(dest => dest.IsActive, opt => opt.Ignore());
                 cfg.CreateMap<OrderRequest, Order>()
@@ -67,14 +67,16 @@ namespace OperationProject.Mapper
                     .ForMember(dest => dest.TotalAmount, opt => opt.Ignore())
                     .ForMember(dest => dest.Status, opt => opt.Ignore())
                     .ForMember(dest => dest.IsActive, opt => opt.Ignore())
-                    .BeforeMap((src, dest) => dest.InsertDate = DateTime.Now)
+                    .ForMember(dest => dest.UpdateDate, opt => opt.Ignore())
                     .BeforeMap((src, dest) => dest.OrderDate = DateTime.Now)
                     .ForMember(dest => dest.OrderDate, opt => opt.Ignore()); // OrderDate'i Ignore et
 
                     cfg.CreateMap<Message, MessageResponse>()
                     .ForMember(dest => dest.SenderUserName, opt => opt.Ignore());
 
-                     cfg.CreateMap<MessageRequest, Message>();
+                     cfg.CreateMap<MessageRequest, Message>()
+                    .ForMember(dest => dest.SenderId, opt => opt.Ignore())
+                    .BeforeMap((src, dest) => dest.InsertDate = DateTime.Now);
 
             });
 

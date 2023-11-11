@@ -28,7 +28,7 @@ namespace OperationProject.Query
             .Include(x => x.Order)
             .ThenInclude(order => order.Dealer)
             .ThenInclude(dealer => dealer.User)
-            .Where(x => x.Order.Dealer.UserLoginId == request.DealerId)
+            .Where(x => x.Order.Dealer.UserLoginId == request.DealerId && x.IsActive)
             .ToListAsync();
             if (list == null)
             {
@@ -45,7 +45,7 @@ namespace OperationProject.Query
             .Include(x => x.Order)
             .ThenInclude(order => order.Dealer)
             .ThenInclude(dealer => dealer.User)
-            .FirstOrDefaultAsync(x => x.PaymentId == request.PaymentId, cancellationToken);
+            .FirstOrDefaultAsync(x => x.PaymentId == request.PaymentId && x.IsActive, cancellationToken);
             if (payment == null)
             {
                 return new ApiResponse<PaymentResponse>("Record not found!");

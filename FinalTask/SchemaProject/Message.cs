@@ -8,7 +8,6 @@ namespace SchemaProject
 {
     public class MessageRequest
     {
-        public int SenderId { get; set; }
         public int RecevierId { get; set; }
         public string MessageContent { get; set; }
     }
